@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="page" id="home">
+        <div class="section" id="nav"> <!-- Nav -->
+            <img src="../images/signature.png" id="signature" />
+            <div class="box no-select nav" id="nav-bar">
+                <a class="btnGroup home layered pressed">
+                    <span class="bg text shadowed_text pro">Home</span>
+                    <span class="bg text shadowed_text per">home</span>
+
+                    <button class="nav home btn shadowed_box" id="homeBtn"></button>
+                    <span class="fg text pro">Home</span>
+                    <span class="fg text per">home</span>
+                </a>
+                <a class="btnGroup layered work" href="/pages/work.html">
+                    <span class="bg text shadowed_text pro">Work</span>
+                    <span class="bg text shadowed_text per">work</span>
+
+                    <button class="nav work btn shadowed_box" id="workBtn"></button>
+                    <span class="fg text pro">Work</span>
+                    <span class="fg text per">work</span>
+
+                </a>
+                <a class="btnGroup layered contact" href="/pages/contact.html">
+                    <span class="bg text shadowed_text pro">Contact</span>
+                    <span class="bg text shadowed_text per">contact</span>
+
+                    <button class="nav contact btn shadowed_box" id="contactBtn"></button>
+                    <span class="fg text pro">Contact</span>
+                    <span class="fg text per">contact</span>
+
+                </a>
+            </div>
+            <div id="paddingDiv"></div> <!-- blank div to maintain spacing -->
+        </div> <!-- End of NAV -->
+
+        <div class="section" id="title"> <!-- Title -->
+            <div class="box title" id="title-box">
+                <div class="leftColumn title-box">
+                    <div class="header layered textbox" id="title-textbox">
+                        <span class="text pro">Justin Lukose</span>
+                        <span class="text per">justin lukose</span>
+                    </div>
+                    <div class="subheader layered textbox" id="quote-textbox">
+                        <span class="text pro">An engineer that enjoys what they do.</span>
+                        <span class="text per">im an engineer that actually enjoys what i do.</span>
+                    </div>
+                </div>
+                <div class="rightColumn layered selfieBase title-box">
+                    <img class="shadowed_box" id="selfie" src="../images/selfie.png" />
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="whatIDo"> <!-- What I Do -->
+            <div class="box whatIDo" id="whatIDo-box">
+                <div class="layered">
+                    <div class="item-bg whatIDo">
+                        <div class="itemsContainer whatIDo">
+                            <div class="item" id="software">
+                                <div class="image whatIDo shadowed_box"></div>
+                                <span class="subheader text shadowed_text pro">Software</span>
+                                <span class="subheader text shadowed_text per">software</span>
+                            </div>
+                            <div class="item" id="hardware">
+                                <div class="image whatIDo shadowed_box"></div>
+                                <span class="subheader text shadowed_text pro">Hardware</span>
+                                <span class="subheader text shadowed_text per">hardware</span>
+                            </div>
+                            <div class="item" id="network">
+                                <div class="image whatIDo shadowed_box"></div>
+                                <span class="subheader text shadowed_text pro">Network</span>
+                                <span class="subheader text shadowed_text per">network</span>
+                            </div>
+                            <div class="item" id="hobbyist">
+                                <div class="image whatIDo shadowed_box"></div>
+                                <span class="subheader text shadowed_text pro">Hobbyist</span>
+                                <span class="subheader text shadowed_text per">hobbyist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text header shadowed_text pro">What I Do.</span>
+                    <span class="text header shadowed_text per">what i do</span>
+
+                </div>
+            </div>
+
+            <div class="subsection hidden" id="whatIDo-Expanded"> <!-- What I Do SubSections -->
+            <div class="box whatIDo-Expanded" id="whatIDo-pic-box">
+                <div class="layered">
+                    <div class="item-bg whatIDo-pic">
+                        <div class="item whatIDo-pic">
+                            <img src="../images/selfie.png" class="software image hidden" alt="image">
+                            <img src="../images/selfie.png" class="hardware image hidden" alt="image">
+                            <img src="../images/selfie.png" class="network image hidden" alt="image">
+                            <img src="../images/selfie.png" class="hobbyist image hidden" alt="image">
+                        </div>
+                    </div>
+                    <span class="text subheader shadowed_text pro">Picture</span>
+                    <span class="text subheader shadowed_text per">pic!</span>
+                </div>
+            </div>
+
+            <div class="box whatIDo-Expanded" id="whatIDo-blurb-box">
+                <div class="layered">
+                    <div class="item-bg whatIDo-blurb">
+                        <div class="item">
+                            <div class="text subtext-small whatIDo-blurb network hidden">
+                                I like the cloud. Whether it's streaming audio or hosting this website, I like being
+                                able to utilize the internet for
+                                the tool that it is. For that reason, I took an interest in understanding Network
+                                Engineering, and I continue to learn
+                                more every day.
+                            </div>
+                            <div class="text subtext-small whatIDo-blurb hobbyist hidden">
+                                I like keeping busy. I'm of the opinion that the hardships of life are meant to be
+                                overcome. For that reason, I treat every setback I run into as a chance to learn and to
+                                grow. As a result, I find myself knowledgeable in a wide array of subjects, and often
+                                these grow into hobbies.
+                            </div>
+
+                        </div>
+                    </div>
+                    <span class="text subheader shadowed_text pro">Description</span>
+                    <span class="text subheader shadowed_text per">blurb</span>
+                </div>
+            </div>
+
+            <div class="box whatIDo-Expanded" id="whatIDo-experiences-box">
+                <div class="layered">
+                    <div class="item-bg whatIDo-experiences">
+                        <div class="columns">
+                            <div class="itemsContainer whatIDo-experiences">
+                                <div class="item">
+                                    <div class="image whatIDo-experiences shadowed_box"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="image whatIDo-experiences shadowed_box"></div>
+                                </div>
+                            </div>
+
+                            <div class="itemsContainer whatIDo-experiences">
+                                <div class="item">
+                                    <button class="image whatIDo-experiences shadowed_box">
+                                        click here to add tags to search
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text subheader shadowed_text pro">Relevant Experiences</span>
+                    <span class="text subheader shadowed_text per">examples</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../main.js"></script>
+</body>
+
+</html>

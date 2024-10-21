@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="page" id="work">
+        <div class="section" id="nav">   <!-- Nav -->
+            <img src="../images/signature.png" id="signature" />
+            <div class="box no-select nav" id="nav-bar">
+                <a class="btnGroup layered home" href="/pages/home.html">
+                    <span class="bg text shadowed_text pro">Home</span>
+                    <span class="bg text shadowed_text per">home</span>
+
+                    <button class="nav home btn shadowed_box" id="homeBtn"></button>
+                    <span class="fg text pro">Home</span>
+                    <span class="fg text per">home</span>
+                </a>
+                <a class="btnGroup work layered pressed">
+                    <span class="bg text shadowed_text pro">Work</span>
+                    <span class="bg text shadowed_text per">work</span>
+
+                    <button class="nav work btn shadowed_box" id="workBtn"></button>
+                    <span class="fg text pro">Work</span>
+                    <span class="fg text per">work</span>
+
+                </a>
+                <a class="btnGroup layered contact" href="/pages/contact.html">
+                    <span class="bg text shadowed_text pro">Contact</span>
+                    <span class="bg text shadowed_text per">contact</span>
+
+                    <button class="nav contact btn shadowed_box" id="contactBtn"></button>
+                    <span class="fg text pro">Contact</span>
+                    <span class="fg text per">contact</span>
+                </a>
+            </div>
+            <div id="paddingDiv"></div> <!-- blank div to maintain spacing -->
+        </div>  <!-- End of NAV -->
+        
+        <div class="section" id="ptheme">   <!-- Nav -->
+            <div class="box no-select ptheme" id="ptheme-bar">
+                <div class="btnGroup layered professional pressed">
+                    <span class="bg text subtext professional shadowed_text">Professional</span>
+                    <button class="ptheme btn shadowed_box" id="homeBtn"></button>
+                    <span class="fg text subtext professional">Professional</span>
+                </div>
+                <div class="btnGroup layered personal">
+                    <span class="bg text subtext personal shadowed_text">personal</span>
+                    <button class="ptheme btn work-btn shadowed_box" id="workBtn"></button>
+                    <span class="fg text subtext personal">personal</span>
+                </div>
+            </div>
+
+            <div class="subsection" id="pthemeSearch-Expanded">
+                <div class="box" id="search-bar">
+                    start typing here
+                </div>
+                <div class="box" id="filter-box">
+                    filter_icon
+                </div>
+                <div class="box hidden" id="filter-bar">
+                    <div class="itemsContainer tagsContainer" id="tagsContainer"></div>
+                </div>
+                <div class="box" id="results-box">
+                    <div class="layered">
+                        <div class="item-bg results-box">
+                            <div class="itemsContainer results-box">
+                                <div class="item" id="">
+                                    <div class="image results-box shadowed_box" id="expImage"></div>
+                                    <span class="subheader text pro" id="expName">
+                                        Experience Name
+                                    </span>
+                                    <span class="subheader text per" id="expName">
+                                        name
+                                    </span>
+                                    <div id="expTags">
+                                        <div class="itemsContainer tagsContainer">
+                                            <span class="subtext text pro tag" id="expStatus">Status</span>
+                                            <span class="subtext text pro tag" id="expHours">Hours</span>
+                                            <span class="subtext text pro tag" id="expDate">Date</span>
+                                            <span class="subtext text per tag" id="">status</span>
+                                            <span class="subtext text per tag" id="">hours</span>
+                                            <span class="subtext text per tag" id="">date</span>
+                                        </div>
+                                        <div class="itemsContainer tagsContainer hidden">
+                                            <span class="subtext-small text pro tag" id="">tag</span>
+                                            <span class="subtext-small text pro tag" id="">tag</span>
+                                            <span class="subtext-small text pro tag" id="">tag</span>
+                                        </div>
+                                    </div>
+                                    <span class="subtext-small text pro" id="expBlurb">Experience Description</span>
+                                    <span class="subtext-small text per" id="expBlurb">experience description</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <span class="text header shadowed_text pro">Search Results</span>
+                        <span class="text header shadowed_text per">search results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

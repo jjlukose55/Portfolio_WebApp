@@ -1,0 +1,552 @@
+/* Root Definitions */
+    :root {
+        /* Primitives */
+        --green:            #A2C5AC;
+        --blue_light:       #9DB5B2;
+        --blue_dark:        #878E99;
+        --purple:           #7F6A93;
+        --grey:             #D3D5D4;
+        --dark_grey:        #4d4d4d;
+
+        --lavender_blush:   #F3E8EE;
+        --ash_grey:         #BACDB0;
+        --cambridge_blue:   #729B79;
+        --paynes_green:     #475B63;
+        --raisin_black:     #2E2C2F;
+
+        --black:            #06070E;
+        --brunswick_green:  #29524A;
+        --cambridge_blue_2: #94A187;
+        --khaki:            #C5AFA0;
+        --tea_rose:         #E9BCB7;
+
+        /* Tokens */
+        --primary: var(--green);
+        --secondary: var(--purple);
+        --tertiary: var(--blue_light);
+        --quaternary: var(--blue_dark);
+        --bg: var(--grey);
+        --white_space: rgb(255, 255, 255, 65%);
+        --scrollbar_color: var(--quaternary);
+
+        /* Element Specific Tokens */
+        --nav-bar_color: var(--raisin_black); 
+        
+        --tile1: url('images/BGTile1.png');
+        --tile2: url('images/BGTile2.png');
+        --tile3: url('images/BGTile3.png');
+
+        --bgTile: var(--tile1);
+
+        --font-pro: 'Playfair Display', serif; /* fonr for professional theme */
+        --font-per: 'Inter', sans-serif; /* font for personal theme */
+
+        --font: var(--font-pro);
+        --font_weight: 900;
+        --letter-spacing: -1px;
+
+        --signature-width: 75px; /* Common width for signature, and padding */
+        --btn-width: calc(var(--signature-width) * 1.5);
+
+        --cursor_pro: url(images/cursor_pro.png);
+        --cursor_per: url(images/cursor_per.png);
+        --cursor: var(--cursor_pro);
+    }
+
+/* Style changes based Current Theme */
+    :root.pro {
+        --font: var(--font-pro);
+
+        --primary: var(--paynes_green);
+        --secondary: var(--paynes_green);
+        --tertiary: var(--paynes_green);
+        --quaternary: var(--paynes_green);
+        --bg: var(--grey);
+
+        --border-radius: 5px;
+    }
+    :root.per {
+        --font: var(--font-per);
+
+        --primary: var(--green);
+        --secondary: var(--purple);
+        --tertiary: var(--blue_light);
+        --quaternary: var(--blue_dark);
+        --bg: var(--grey);
+
+        --border-radius: 10px;
+    }
+
+/* Style changes based Current Page */
+    #home {
+        --nav-bar_color: var(--primary);
+    }
+    #work {
+        --nav-bar_color: var(--secondary);
+    }
+    #contact {
+        --nav-bar_color: var(--tertiary);
+    }
+
+/* Disable Element Specific Cursor Options  */
+    body, button, a {
+        cursor: var(--cursor), default;
+    }
+
+/* Body Styling */
+    body {
+        background-color: var(--bg);
+        background-image: var(--bgTile); /* Replace with your image path */
+        background-repeat: repeat; /* Tiles the image in both x and y directions */
+        background-size: 50px 50px; /* Controls the size of each tile */
+        background-position: top; /* Adjusts the position of the background */
+
+        
+        margin: 0; /* Remove default body margin */
+
+        overflow-y: scroll;
+        display: none; /* Initially hide the body */
+    }
+    body.visible {
+        display: block; /* Show body after JavaScript runs */
+    }
+    body::before {
+        content: "";
+        position: fixed; /* Ensures overlay is fixed to the viewport */
+        top: 0;
+        left: 0;
+        width: 100vw; /* Use viewport width */
+        height: 100vh; /* Use viewport height */
+        background-color: rgba(211, 213, 212, 0.6); /* Use rgba for better control */
+        z-index: 0; /* Place it behind content but above any backgrounds */
+        pointer-events: none; /* Prevent the overlay from blocking interactions */
+    }
+    
+/* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 1.25vh;
+        height: 1.25vh;
+    }
+    ::-webkit-scrollbar-track {
+        background: rgb(from var(--scrollbar_color) calc(r - 40) calc(g - 40) calc(b - 40) / 40%);
+        border-radius: 100vh;
+        margin: 1vh;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: rgb(from var(--scrollbar_color) calc(r - 40) calc(g - 40) calc(b - 40) / 80%);
+        border-radius: 100vh;
+        border: .3vh solid rgba(0, 0, 0, 0.1);
+    }
+
+/* Disable Default Styling for A elements in NavButtons */
+    a.btnGroup, button {
+        text-decoration: none;
+        color: inherit;
+        border: none;
+    }
+
+/* Styles elements in .layered or .inline-layerer groups to default on top of one another */
+    /* for block elements */
+    .layered {
+        display: grid;
+        width: 100%;
+    }
+    .layered  > *, .btnGroup > * {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    /* or for inline elements */
+    .inline-layered {
+        display: inline-grid;
+    }
+    .inline-layered > * {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+/* Sets text styles and defines commonly used text sizes */
+    .text {
+        font-family: var(--font);
+        font-weight: var(--font_weight);
+        letter-spacing: var(--letter-spacing);
+        width: fit-content;
+        height: fit-content;
+    }
+    .header {
+        font-size: xx-large;
+    }
+    .subheader {
+        font-size: x-large;
+    }
+    .subtext {
+        font-size: medium;
+    }
+    .subtext-small {
+        font-size: medium;
+        font-weight: 400;
+    }
+    .professional.text {
+        font-family: var(--font-pro);
+    }
+    .personal.text {
+        font-family: var(--font-per);
+    }
+
+.item-bg {
+    background-color: var(--white_space);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2%;
+    padding-top: 5%;
+    margin-top: 20px;
+}
+.item-bg.results-box {
+    overflow-y: scroll;
+    --scrollbar_color : var(--tertiary);
+} 
+.textbox {
+    width: fit-content;
+    background-color: var(--white_space);
+}
+
+/* This css is to disable highlights from certain text. This can remove from ux */
+    .no-select, .page {
+        user-select: none; /* Prevent text selection */
+        -webkit-user-select: none; /* For Safari */
+        -moz-user-select: none; /* For Firefox */
+        -ms-user-select: none; /* For Internet Explorer/Edge */
+    }
+
+/* Styles shadowed elements */
+    .shadowed_text {
+        text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
+    }
+    .shadowed_box {
+        box-shadow: -3px 3px 0px rgba(0, 0, 0, .3);
+    }
+    .shadowed_box_blurred, .box {
+        box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
+    }
+
+/* Component "Page" Styling */
+    .page {
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+/* Component "Section" Styling */
+    .section {
+        display: flex;
+        position: relative;
+        gap: 15px;
+        width: 600px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .section#nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+
+/* Component "Subsection" Styling */
+.subsection {
+    display: grid;
+    
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 15px;
+    width: 100%;
+
+
+}
+.subsection#whatIDo-Expanded {
+    grid-template-areas: 
+        'one two two'
+        'three three three';
+}
+.subsection#pthemeSearch-Expanded {
+    grid-template-areas: 
+        'one one two'
+        'four four four';
+    grid-auto-rows: min-content;
+}
+
+
+/* Component "Box" Styling */
+    .box {
+        background-color: var(--primary);
+        border-radius: var(--border-radius);
+        display: flex;
+        flex: 1;
+        padding: 10px;
+    }
+/* Specific Box Styling */
+#nav .box {
+    background-color: var(--nav-bar_color);
+    flex-direction: row;
+    gap: 20px; /* Spacing between buttons */
+}
+#title .box {
+    background-color: var(--secondary);
+    flex-direction: row;
+    gap: 15px;
+    width: 600px;
+    justify-content: space-between;
+}
+#whatIDo-box {
+    background-color: var(--tertiary);
+    gap: 15px;
+}
+#whatIDo-pic-box {
+    background-color: var(--primary);
+    grid-area: one;
+}
+#whatIDo-blurb-box {
+    background-color: var(--secondary);
+    grid-area: two;
+}
+#whatIDo-experiences-box {
+    background-color: var(--tertiary);
+    grid-area: three;
+}
+#ptheme-bar {
+    background-color: var(--tertiary);
+    width: 350px;
+    flex: none;
+    justify-content: space-around;
+    
+}
+#search-bar {
+    background-color: var(--primary);
+    grid-area: one;
+}
+#filter-box {
+    background-color: var(--secondary);
+    grid-area: two;
+    grid-auto-rows: 100px;
+}
+#filter-bar {
+    background-color: var(--secondary);
+    --scrollbar_color : var(--secondary);
+    grid-area: three;
+    display: flex;
+    overflow-x: scroll;
+    gap: 5px;
+}
+#results-box {
+    background-color: var(--tertiary);
+    grid-area: four;
+    max-height: 60vh;
+}
+.itemsContainer.results-box .item {
+    display: grid;
+    width: 100%;
+    gap: 5px;
+    grid-template-areas:
+        'one two two'
+        'one three three'
+        'one four four';
+    justify-content: start;
+}
+#expImage {
+    grid-area: one;
+    width: 175px;
+    height: 100px;
+}
+#expName {
+    grid-area: two;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: baseline;
+    gap: 5px;
+    height: fit-content;
+}
+#expTags {
+    grid-area: three;
+    display: flex;
+    width: fit-content;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+#expBlurb {
+    grid-area: four;
+    grid-column: 100%;
+}
+
+/* Signature styling and Padding Div */
+#signature, #paddingDiv {
+    width: var(--signature-width);  /* Use the common width variable */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+/* Button styles */
+.btnGroup {
+    justify-items: center;
+    font-size: 30px;
+}
+.btn {
+    background-color: var(--white_space);
+}
+.btn.nav {
+    width: var(--btn-width);
+    margin-top: 18px;
+    height: 20px;
+    transition: background-color 0.3s ease;
+}
+.btn.ptheme {
+    width: 125px;
+}
+
+/* Styling for pressed buttons. */
+.pressed {
+    transform: translateY(3px);
+}
+.pressed button, .pressed .shadowed_box {
+    box-shadow: none;
+}
+.pressed span, .pressed .shadowed_text {
+    text-shadow: none;
+}
+
+.btnGroup.home:hover #homeBtn {
+    background-color: var(--primary);
+}
+.btnGroup.work:hover #workBtn {
+    background-color: var(--secondary);
+}
+.btnGroup.contact:hover #contactBtn {
+    background-color: var(--tertiary);
+}
+
+/* Title section styles */
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.leftColumn.title-box {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: end;
+    gap: 10px;
+}
+.rightColumn.title-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex: 1;
+}
+#selfie {
+    width: 175px;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+.itemsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.itemsContainer.results-box {
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.tagsContainer {
+    gap: 5px;
+    flex-basis: content;
+}
+/* WhatIDo section styles */
+.image.whatIDo {
+    background-color: var(--blue_dark);
+    width: 125px;
+    height: 100px;
+    border: none;
+}
+
+/* WhatIDo Expanded section styles */
+#whatIDo-Expanded {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* WhatIDo Expanded Pic section styles */
+.item-bg.whatIDo-pic {
+    align-items: center;
+    justify-content: center;
+
+}
+.whatIDo-pic .image {
+    object-fit: cover;
+    width: 75%;
+}
+.item.whatIDo-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/* WhatIDo Expanded Blurb section styles */
+.item-bg.whatIDo-blurb {
+    padding: 10px;
+}
+
+/* WhatIDo Expanded Experiences section styles */
+.image.whatIDo-experiences {
+    background-color: var(--blue_dark);
+    width: 120px;
+    height: 60px;
+    border: none;
+}
+.leftColumn.whatIDo-experiences {
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    justify-content: start;
+    padding-left: 10px;
+    gap: 10px;
+}
+.rightColumn.whatIDo-experiences {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Contact Card section styles */
+.item-bg.contact-card {
+    height: 170px; 
+}
+.item.contact-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag{
+    background-color: var(--white_space);
+    border-radius: 100vh;
+    width: max-content;
+    padding: 1px 10px;
+    text-align: center;
+}
+
+/* Class "Hidden" used for disabling elements */
+.hidden {
+    display: none !important;
+    grid-row: none !important;
+}
