@@ -26,7 +26,7 @@
         --tertiary: var(--blue_light);
         --quaternary: var(--blue_dark);
         --bg: var(--grey);
-        --white_space: rgb(255, 255, 255, 65%);
+        --white_space: rgb(255, 255, 255, 50%);
         --scrollbar_color: var(--quaternary);
 
         /* Element Specific Tokens */

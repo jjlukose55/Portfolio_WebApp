@@ -1,33 +1,72 @@
-// Apply JS after DOM has loaded 
-document.addEventListener('DOMContentLoaded', () => {
-    // Persistent Listeners. These functions are not page specific.
-    // Page loader
-    const pagesToPrefetch = [
-        '/pages/home.html',
-        '/pages/work.html',
-        '/pages/contact.html'
-    ];
+// SPA Dynamic Page Loader
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script is running");
+    let pageElement = document.querySelector(".page");
 
-    pagesToPrefetch.forEach(page => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = page;
-        document.head.appendChild(link);
-    });
+    function updatePageHTML(link) {
+        fetch(link)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const newPageContent = doc.querySelector('.page');
+            
+            if (newPageContent) {
+                pageElement.innerHTML = newPageContent.innerHTML;
+                main();
+                attachListeners();
+            } else {
+                console.error('No element with class "page" found in the fetched HTML.');
+            }
+        })
+        .catch(error => {
+            console.error('Failed to fetch page:', error);
+        });
+
+    }
+
+    function attachListeners() {
+        const navButtons = document.querySelectorAll("#nav-bar .btnGroup");
+        navButtons.forEach(navButton => {
+            navButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (navButton.classList.contains('home') && pageElement.id != "home") {
+                    pageElement.id = "home";
+                    updatePageHTML("/pages/home.html");
+                } else if (navButton.classList.contains('work') && pageElement.id != "work") {
+                    pageElement.id = "work";
+                    updatePageHTML("/pages/work.html");
+                } else if (navButton.classList.contains('contact') && pageElement.id != "contact") {
+                    pageElement.id = "contact";
+                    updatePageHTML("/pages/contact.html");
+                }
+                console.log(`navigated to ${pageElement.id}`);
+            });
+        });
+    }
+
+    pageElement.id = "home";
+    updatePageHTML("/pages/home.html");
+});
+
+function main(){
+    // Persistent Listeners. These functions are not page specific.
 
     // Parse project.json
     let projects = []; // Variable to store the parsed JSON data
 
-    async function parseJSON() {
-        console.log("parsing...");
-        
+    async function parseJSON() {        
         try {
             const response = await fetch('/../projects.json'); // Adjust the path as necessary
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             projects = await response.json(); // Parse JSON response
-            console.log('JSON data parsed successfully:', projects);
         } catch (error) {
             console.error('Error loading JSON:', error);
         }
@@ -88,29 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const workPage = document.getElementById('work');
     const contactPage = document.getElementById('contact');
 
-    // Check if the emailLink exists
     if (homePage) {
-        console.log('Accessing Home Page');
-
         // Code for WhatIDo Items
         // Select all items within the itemsContainer
         const items = document.querySelectorAll('.itemsContainer.whatIDo .item');
         const subsections = document.querySelectorAll('.subsection');
 
-        // Check if items were found and log them
-        console.log('Found items:', items);
-
-
         // Add click event listener to each item
         items.forEach(item => {
-            console.log('Adding click listener to:', item);
-
             const hiddenClasses = document.querySelectorAll('.software, .hardware, .network, .hobbyist');
             const currentShownCLass = document.querySelectorAll(`.${item.id}`);
 
             item.addEventListener('click', () => {
-                console.log('Click registered on:', item);
-
                 // Check if the clicked item already has the 'pressed' class
                 const isPressed = item.classList.contains('pressed');
 
@@ -134,10 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
     if (workPage) {
-        console.log('Accessing Work Page');
         // Code for P-Theme Buttons
-        console.log('Accessing Work Page');
-
         const themeButtons = document.querySelectorAll('#ptheme-bar .btnGroup');
 
         // Clear all pressed states (defaults to none pressed)
@@ -152,8 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add click event listener to each theme button
         themeButtons.forEach((theme, index) => {
             theme.addEventListener('click', () => {
-                console.log("Theme button clicked");
-
                 // Remove 'pressed' class from all themes
                 themeButtons.forEach(i => i.classList.remove('pressed'));
 
@@ -277,17 +300,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="subtext-small text pro tag" id="">tag</span>
                         </div>
                     </div>
-                    <span class="subtext-small text pro hidden" id="expBlurb">${project.description}</span>
+                    <span class="subtext-small text pro" id="expBlurb">${project.description}</span>
                 </div>
                 `;
 
                 // Optionally modify for current theme
-                if (!currentTheme) {
+                if (currentTheme) {
                     listItemHTML = `
                         <div class="item" id="">
                             <div class="image results-box shadowed_box" id="expImage"></div>
                             <span class="subheader text per" id="expName">
-                                ${project.title}
+                                ${flipCase(project.title)}
                             </span>
                             <div id="expTags">
                                 <div class="itemsContainer tagsContainer">
@@ -301,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <span class="subtext-small text per tag" id="">tag</span>
                                 </div>
                             </div>
-                            <span class="subtext-small text per hidden" id="expBlurb">${project.description}</span>
+                            <span class="subtext-small text per" id="expBlurb">${flipCase(project.description)}</span>
                         </div>
                         `;
                 };
@@ -314,17 +337,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Call the function to load items
         async function loadData() {
             await parseJSON(); // Wait for parsing to complete
-            console.log("Data is ready for use.");
             updateResults(); // Call function to update results or manipulate DOM
         }
 
         loadData();
-
-        document.addEventListener()
     };
     if (contactPage) {
-        console.log('Accessing Contact Page');
-
         // Code for Contact-card Email
         const emailLink = document.getElementById('emailLink');
         const email = "JJLukose55@gmail.com"; // Your email address
@@ -345,5 +363,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     };
-
-})
+}

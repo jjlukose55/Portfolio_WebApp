@@ -1,18 +1,18 @@
 [
     {
         "title": "Portfolio",
-        "description": "A return to Web Development to refresh my knowledge base. I started this project to hone and refresh my abilities with JavaScript. It ended up being a good refresher for the full engineering design process.",
+        "description": "My personal portfolio as a website.",
         "status": "Current",
         "hours": "100 Hours",
         "date": "Fall 2024",
         "image_link": "https://portfolio.jjluk.net"
     },
     {
-        "title": "Portfolio",
-        "description": "A return to Web Development to refresh my knowledge base. I started this project to hone and refresh my abilities with JavaScript. It ended up being a good refresher for the full engineering design process.",
-        "status": "Current",
-        "hours": "100 Hours",
-        "date": "Fall 2024",
+        "title": "Tasks",
+        "description": "A simple browser based task manager.",
+        "status": "Complete",
+        "hours": "30 Hours",
+        "date": "Unknown",
         "image_link": "https://portfolio.jjluk.net"
     }
 ]
