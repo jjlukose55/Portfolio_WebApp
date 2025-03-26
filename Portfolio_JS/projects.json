@@ -3,16 +3,44 @@
         "title": "Portfolio",
         "description": "My personal portfolio as a website.",
         "status": "Current",
-        "hours": "100 Hours",
+        "hours": "100+",
         "date": "Fall 2024",
-        "image_link": "https://portfolio.jjluk.net"
+        "tags": ["Pro", "per", "software", "network", "creative"],
+        "image_link": "https://portfolio.jjluk.net",
+        "external_link": "https://portfolio.jjluk.net",
+        "demo_link": ""
     },
     {
         "title": "Tasks",
         "description": "A simple browser based task manager.",
         "status": "Complete",
-        "hours": "30 Hours",
+        "hours": "30+",
         "date": "Unknown",
-        "image_link": "https://portfolio.jjluk.net"
+        "tags": ["Pro", "per", "software", "creative"],
+        "image_link": "https://github.com/jjlukose55/Tasks_WebApp",
+        "external_link": "https://portfolio.jjluk.net",
+        "demo_link": "..\\demos\\Tasks_WebApp\\Tasks_App\\index.html"
+    },
+    {
+        "title": "HomeServer",
+        "description": "A personal server I maintain.",
+        "status": "Current",
+        "hours": "300+",
+        "date": "Fall 2023",
+        "tags": ["Pro", "per", "hardware", "network", "hobbyist"],
+        "image_link": "",
+        "external_link": "https://portfolio.jjluk.net",
+        "demo_link": ""
+    },
+    {
+        "title": "HomeNetwork",
+        "description": "The design and implementation of an enthusiast's home network.",
+        "status": "Complete",
+        "hours": "50+",
+        "date": "Summer 2024",
+        "tags": ["Pro", "per", "hardware", "network", "hobbyist"],
+        "image_link": "",
+        "external_link": "https://portfolio.jjluk.net",
+        "demo_link": ""
     }
 ]
