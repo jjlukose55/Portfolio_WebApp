@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
                 if (navButton.classList.contains('home') && pageElement.id != "home") {
                     pageElement.id = "home";
-                    updatePageHTML("/pages/home.html");
+                    updatePageHTML("/webapp/pages/desktop/home.html");
                 } else if (navButton.classList.contains('work') && pageElement.id != "work") {
                     pageElement.id = "work";
-                    updatePageHTML("/pages/work.html");
+                    updatePageHTML("/webapp/pages/desktop/work.html");
                 } else if (navButton.classList.contains('contact') && pageElement.id != "contact") {
                     pageElement.id = "contact";
-                    updatePageHTML("/pages/contact.html");
+                    updatePageHTML("/webapp/pages/desktop/contact.html");
                 }
                 console.log(`navigated to ${pageElement.id}`);
             });
@@ -51,7 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     pageElement.id = "home";
-    updatePageHTML("/pages/home.html");
+
+    // Simple mobile detection
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    // Choose page based on device
+    const pagePath = isMobile
+    ? "/webapp/pages/mobile/home.html"
+    : "/webapp/pages/desktop/home.html";
+
+    updatePageHTML(pagePath);
 });
 
 function main() {
@@ -61,7 +70,7 @@ function main() {
     let projects = []; // Variable to store the parsed JSON data
     async function parseJSON() {
         try {
-            const response = await fetch('/../projects.json'); // Adjust the path as necessary
+            const response = await fetch('/projects.json'); // Adjust the path as necessary
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

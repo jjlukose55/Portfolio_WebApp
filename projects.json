@@ -1,0 +1,51 @@
+[
+    {
+        "title": "Portfolio",
+        "description": "My personal portfolio as a website.",
+        "tags": ["featured", "software", "network", "creative"],
+        "image_link": "https://portfolio.web.jjluk.net",
+        "external_link": "https://portfolio.web.jjluk.net"
+    },
+    {
+        "title": "Tasks",
+        "description": "A simple browser based task manager.",
+        "tags": ["software", "creative"],
+        "image_link": "https://github.com/jjlukose55/Tasks_WebApp",
+        "external_link": "https://tasks.web.jjluk.net"
+    },
+    {
+        "title": "Home Lab",
+        "description": "My personal labratory.",
+        "tags": ["featured", "hardware", "network", "hobbyist"],
+        "image_link": "",
+        "external_link": "https://lab.web.jjluk.net"
+    },
+    {
+        "title": "Research: \" \"",
+        "description": "",
+        "tags": ["research", "hardware"],
+        "image_link": "",
+        "external_link": "https://research.web.jjluk.net/fall2022"
+    },
+    {
+        "title": "Research: \"Humanoid Robots\"",
+        "description": "",
+        "tags": ["featured", "research", "software"],
+        "image_link": "",
+        "external_link": "https://research.web.jjluk.net/fall2024"
+    },
+    {
+        "title": "Closet Database",
+        "description": "A React Native app that doubles as an organization tool and a social media.",
+        "tags": ["per", "software"],
+        "image_link": "",
+        "external_link": "https://closet.web.jjluk.net"
+    },
+    {
+        "title": "Car Guy",
+        "description": "My car and what I have learned maintaining it.",
+        "tags": ["featured", "automotive", "hobbyist"],
+        "image_link": "",
+        "external_link": "https://car.web.jjluk.net"
+    }
+]

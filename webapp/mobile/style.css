@@ -705,7 +705,7 @@ grid-row: none !important;
         grid-template-areas: 'one two';
     }
 }
-/* Desktops */
+/* Desktops 
 @media (min-width: 1025px){
     .box {
         padding: 15px;
@@ -719,7 +719,7 @@ grid-row: none !important;
     .item-bg {
         margin-top: 2rem;
     }
-}
+} */
 /* Unsupported Screens */
 @media (max-width: 290px){
     .page {
