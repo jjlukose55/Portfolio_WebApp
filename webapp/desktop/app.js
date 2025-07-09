@@ -1,11 +1,13 @@
 console.log("Desktop script is running");
 /* CONSTANTS */
 // Pages
-const pages = ['home', 'work', 'contact'];
+const pages = ['home', 'portfolio', 'services', 'contact'];
 // DOM Elements
+const body = document.querySelector("body")
 const navButtons = document.querySelectorAll("#nav-bar .btnGroup");
 const page = document.querySelector(".page");
 const nav = document.querySelector("#nav");
+const navBar = document.querySelector("#nav-bar");
 const butterfly = document.getElementById('butterfly');
 const signature = document.getElementById('signature');
 // Style Variables (Used for dynamic theming)
@@ -55,6 +57,7 @@ function attachNAVListeners() {
             event.preventDefault();
             if (matchedPage == page.id) return;
             updatePageHTML(window.basePath + "pages/" + matchedPage.trim() + ".html");
+            body.classList.replace(page.id, matchedPage.trim());
             page.id = matchedPage.trim();
             console.log(`navigated to ${page.id}`);
         },  { once: true }); // prevent multiple duplicate listeners
@@ -93,6 +96,7 @@ let currentTile = parseInt(localStorage.getItem('currentTile')) || 0; // Get sav
 document.documentElement.style.setProperty('--bgTile', `var(${tiles[currentTile]})`);
 
 // Make HTML Visible after JS Loads
+document.body.classList.add(page.id);
 document.body.classList.add('visible');
 
 signature.addEventListener('click', () => {
@@ -108,15 +112,18 @@ function main() {
     /* CONSTANTS */
     // Pages
     const homePage = document.getElementById('home');
-    const workPage = document.getElementById('work');
+    const portfolioPage = document.getElementById('portfolio');
     const contactPage = document.getElementById('contact');
+    const servicesPage = document.getElementById('services');
     console.log("entered main loop");
 
     attachNAVListeners();
 
+    // Redraw NAV
+    navBar.classList.add('none');
+    navBar.classList.remove('none');
+
     if (homePage) {
-        // NAV Bar Styling 
-        document.documentElement.style.setProperty("--nav-bar_color", "var(--primary)");
         // Code for WhatIDo Items
         // Select all items within the itemsContainer
         const items = document.querySelectorAll('.itemsContainer.whatIDo .item');
@@ -142,9 +149,7 @@ function main() {
         });
 
     };
-    if (workPage) {
-        // NAV Bar Styling 
-        document.documentElement.style.setProperty("--nav-bar_color", "var(--secondary)");
+    if (portfolioPage) {
         // Code for Search Bar Functionality
         // Search-Bar
         const searchInputs = document.querySelectorAll("#search-bar input");
@@ -284,7 +289,7 @@ function main() {
             filteredProjects.forEach(project => {
                 let listItemHTML = `
                 <div class="item" id="">
-                    <span class="subheader text" id="expName">
+                    <span class="subheader text bold" id="expName">
                         ${project.title}
                     </span>
                     <div id="expTags">
@@ -303,6 +308,9 @@ function main() {
 
                 // Add tags as <span> elements
                 project.tags.forEach(tag => {
+                    if (tag == "featured") {
+                        return;
+                    }
                     const tagEl = document.createElement('span');
                     tagEl.classList.add('tag', 'subtext-small');
                     tagEl.textContent = tag;
@@ -344,9 +352,26 @@ function main() {
 
         loadData();
     };
+    if (servicesPage) {
+        // Collapse boxes
+        const boxes = document.querySelectorAll('.collapsible');
+        boxes.forEach(box => {
+            const items = box.querySelector('.expandable');
+            box.addEventListener('click', () => {
+            const isExpandable = !items.classList.contains('expanded');
+            // Collapse all boxes
+            boxes.forEach(b => {
+                const otherItems = b.querySelector('.expandable');
+                otherItems.classList.remove('expanded');
+            });
+            // If the clicked box was collapsed, expand it
+            if (isExpandable) {
+                items.classList.add('expanded');
+            }
+            });
+        });
+    }
     if (contactPage) {
-        // NAV Bar Styling 
-        document.documentElement.style.setProperty("--nav-bar_color", "var(--tertiary)");
         // Code for Contact-card Email
         const emailLink = document.getElementById('emailLink');
         const email = "JJLukose55@gmail.com"; // Your email address

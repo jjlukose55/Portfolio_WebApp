@@ -9,16 +9,16 @@
     --dark_grey:        #4d4d4d;
 
     /* Tokens */
-    --primary: var(--green);
-    --secondary: var(--purple);
-    --tertiary: var(--blue_light);
-    --quaternary: var(--blue_dark);
+    --colorOne: var(--green);
+    --colorTwo: var(--blue_light);
+    --colorThree: var(--blue_dark);
+    --colorFour: var(--purple);
     --bg: var(--grey);
     --white_space: rgb(255, 255, 255, 50%);
-    --scrollbar_color: var(--quaternary);
+    --scrollbar_color: var(--colorFour);
 
     /* Element Specific Tokens */
-    --nav-bar_color: var(--raisin_black); 
+    --navbarcolor: var(--raisin_black); 
     
     --tile1: url('/webapp/images/BGTile1.png');
     --tile2: url('/webapp/images/BGTile2.png');
@@ -27,7 +27,7 @@
     --bgTile: var(--tile1);
 
     --font: 'Inter', sans-serif; /* font for personal theme */
-    --font_weight: 800;
+    --font_weight: 400;
     --letter-spacing: normal;
     font-size: 24px;
 
@@ -38,7 +38,32 @@
     --selfie-width: calc(var(--page-width) * .25);
     --border-radius: 20px;
 }
-
+/* Page dependent styling */
+.home {
+    --navbarcolor: var(--colorOne)
+}
+.portfolio {
+    --navbarcolor: var(--colorTwo)
+}
+.services {
+    --navbarcolor: var(--colorThree)
+}
+.contact {
+    --navbarcolor: var(--colorFour)
+}
+/* Color Groups. Apply background color directly to elements  */
+.colorOne {
+    background-color: var(--colorOne);
+}
+.colorTwo {
+    background-color: var(--colorTwo);
+}
+.colorThree {
+    background-color: var(--colorThree);
+}
+.colorFour {
+    background-color: var(--colorFour);
+}
 /* Disable Element Specific Cursor Options  */
 body, button, a {
     cursor: var(--cursor), default;
@@ -91,10 +116,9 @@ body::before {
     border: .3vh solid rgba(0, 0, 0, 0.1);
 }
 
-/* Disable Default Styling for A elements in NavButtons */
-a.btnGroup, button {
+/* Disable Default Styling for A elements */
+a, button {
     text-decoration: none;
-    color: inherit;
     border: none;
 }
 
@@ -136,13 +160,15 @@ a.btnGroup, button {
 }
 .subtext-small {
     font-size: .8rem;
-    font-weight: 400;
 }
 .professional.text {
     font-family: var(--font-pro);
 }
 .personal.text {
     font-family: var(--font-per);
+}
+.bold {
+    font-weight: 800;
 }
 
 .underline {
@@ -185,8 +211,10 @@ max-height: 500px;
 }
 .textbox {
 width: fit-content;
-padding: 2%;
+padding: 1% 2%;
+margin: 1%;
 background-color: var(--white_space);
+border-radius: 3px;
 }
 
 /* This css is to disable highlights from certain text. This can remove from ux */
@@ -226,7 +254,7 @@ background-color: var(--white_space);
 }
 #nav {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 6fr 1fr;
     align-items: center;
     gap: 2%;
 }
@@ -241,30 +269,25 @@ width: 100%;
 
 /* Component "Box" Styling */
 .box {
-    background-color: var(--nav-bar_color);
+
     border-radius: var(--border-radius);
     flex: 1;
     padding: 15px;
 }
 /* Specific Box Styling */
 #nav .box {
-background-color: var(--nav-bar_color);
+background-color: var(--navbarcolor);
 display: flex;
 flex-direction: row;
 gap: 20px; /* Spacing between buttons */
 }
 #title-box {
-    background-color: var(--secondary);
 display: grid;
 grid-template-columns: 3fr 1fr;
 grid-template-rows: 1fr min-content;
 align-items: end;
 }
-#whatIDo-box {
-    background-color: var(--tertiary);
-}
 #search-bar {
-background-color: var(--primary);
 display: grid;
     grid-template-columns: min-content auto;
 }
@@ -272,14 +295,9 @@ display: grid;
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 5px;
-background-color: var(--secondary);
 }
 #results-box {
-background-color: var(--tertiary);
 padding-top: 0;
-}
-#contact-card-box {
-    background-color: var(--primary);
 }
 .itemsContainer.results-box .item {
 display: grid;
@@ -313,7 +331,7 @@ grid-area: four;
 
 /* Signature styling and Padding Div */
 #signature, #paddingDiv {
-width: 100px;  /* Use the common width variable */
+width: 90px;  /* Use the common width variable */
 height: auto;  /* Maintain aspect ratio */
 }
 
@@ -356,13 +374,16 @@ text-shadow: none;
   }
 
 .btnGroup.home:hover #homeBtn {
-background-color: var(--primary);
+background-color: var(--colorOne);
 }
-.btnGroup.work:hover #workBtn {
-background-color: var(--secondary);
+.btnGroup.portfolio:hover #portfolioBtn {
+background-color: var(--colorTwo);
+}
+.btnGroup.services:hover #servicesBtn {
+background-color: var(--colorThree);
 }
 .btnGroup.contact:hover #contactBtn {
-background-color: var(--tertiary);
+background-color: var(--colorFour);
 }
 
 /* Title section styles */
@@ -372,6 +393,7 @@ background-color: var(--tertiary);
     justify-self: end;
     grid-row-start: span 2;
     border-radius: 5px;
+    height: 240px;
 }
 #quote {
     grid-row-start: 2;
@@ -387,7 +409,7 @@ justify-items: center;
 .itemsContainer.results-box {
 flex-wrap: wrap;
 padding-inline: 3%;
-height: 450px;
+height: 500px;
 overflow: scroll;
 align-content: baseline;
 }
@@ -399,7 +421,7 @@ justify-content: flex-start;
 }
 #tagsContainer {
     padding-block: 5px;
-    --scrollbar_color : var(--secondary);
+    --scrollbar_color : var(--colorTwo);
     overflow-x: scroll;
 }
 .tag.selected {
@@ -436,7 +458,17 @@ flex-direction: row;
 flex: auto;
 justify-content: space-around;
 }
-
+.itemsContainer.contact-card .item {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.socialIcons {
+    width: 60px;
+    height: 60px;
+}
 .tag{
 background-color: var(--white_space);
 border-radius: 100vh;
@@ -447,7 +479,6 @@ align-content: center;
 }
 #search-bar input {
 border: none;
-background-color: var(--primary);
 outline: none;
 width: 100%;
 }
@@ -559,6 +590,17 @@ width: 100%;
 }
 #butterfly.active #butterflyDownFlap {
     animation: flap .4s infinite alternate-reverse, rainbow 1.6s infinite normal;
+}
+
+/* Collapsible animations */
+.expandable {
+overflow: hidden;
+transition: max-height .15s ease;
+max-height: 0;
+}
+
+.expandable.expanded {
+max-height: 500px; /* adjust based on content */
 }
 
 /* Class "Hidden" used for disabling elements */

@@ -8,11 +8,11 @@ You can view my complete project portfolio in two formats:
 
 - **📄 Markdown Format**:  
   A clean, text-based portfolio written in Markdown.  
-  🔗 [portfolio.web.jjluk.net/markdown](https://portfolio.web.jjluk.net/markdown)
+  🔗 [portfolio.jjluk.net/markdown](https://portfolio.jjluk.net/markdown)
 
 - **🖥️ Web App Interface**:  
   A styled, interactive version of my portfolio using HTML/CSS/JavaScript.  
-  🔗 [portfolio.web.jjluk.net/webapp](https://portfolio.web.jjluk.net/webapp)
+  🔗 [portfolio.jjluk.net/webapp](https://portfolio.jjluk.net/webapp)
 
 ## 🔧 Hosting Details
 
