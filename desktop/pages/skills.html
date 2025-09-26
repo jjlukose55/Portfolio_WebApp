@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="page" id="skills">
+        <div class="section">
+            <div class="box colorFour">
+                <div class="text subtext-small textbox">
+                    This page outlines my technical and professional toolkit. 
+                    For detailed examples of these skills in action, please see my "portfolio" page.
+                    <br/><br/>
+                    * This list is not complete and is subject to change over time. 
+                </div>                   
+            </div>
+        </div>
+        <div class="section" id="skillsContainer" style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="box colorOne collapsible">
+                <span class="text subheader underline bold">Category</span>
+                <i class="fa-solid fa-caret-down collapse-icon"></i>
+                <div class="skillContainer expandable">
+                    <span class="text subtext underline">Subcategory</span>
+                    <div class="skillContainer" style="flex: 1 0 100%;">
+                        <div class="skill textbox">
+                            <div class="text subtext professional">Skill Name</div>
+                            <div class="text subtext-small professional">context</div>
+                        </div>
+                    </div>                
+                </div>                
+            </div>
+        </div>        
+    </div>
+</body>
+</html>

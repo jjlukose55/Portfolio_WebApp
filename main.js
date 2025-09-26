@@ -3,8 +3,8 @@ window.isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 // Set Base Path
 window.basePath = isMobile
-? "/webapp/mobile/"
-: "/webapp/desktop/";
+? "/mobile/"
+: "/desktop/";
 
 const link = document.createElement("link");
 link.rel = "stylesheet";

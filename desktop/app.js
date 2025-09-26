@@ -1,7 +1,7 @@
 console.log("Desktop script is running");
 /* CONSTANTS */
 // Pages
-const pages = ['home', 'portfolio', 'services', 'contact'];
+const pages = ['home', 'portfolio', 'skills', 'contact'];
 // DOM Elements
 const body = document.querySelector("body")
 const navButtons = document.querySelectorAll("#nav-bar .btnGroup");
@@ -45,8 +45,10 @@ function elementFromHTML(html){
     return template.content.firstElementChild;
 }
 
-// Persistent Listeners. These functions are not page specific.
+/* Persistent Listeners. These functions are not page specific. */
+/* NAV */
 function attachNAVListeners() {
+    // Nav Buttons
     navButtons.forEach(navButton => {
         const matchedPage = pages.find(e => navButton.classList.contains(e));
         navButton.classList.remove("pressed");
@@ -61,6 +63,18 @@ function attachNAVListeners() {
             page.id = matchedPage.trim();
             console.log(`navigated to ${page.id}`);
         },  { once: true }); // prevent multiple duplicate listeners
+    });
+    // Backdrop
+    // Listen for the scroll event on the window
+    window.addEventListener('scroll', () => {
+    // Check if the user has scrolled more than 10 pixels
+    if (window.scrollY > 10) {
+        // If yes, add the 'scrolled' class
+        nav.classList.add('scrolled');
+    } else {
+        // If not, remove the 'scrolled' class
+        nav.classList.remove('scrolled');
+    }
     });
 }
 
@@ -114,7 +128,7 @@ function main() {
     const homePage = document.getElementById('home');
     const portfolioPage = document.getElementById('portfolio');
     const contactPage = document.getElementById('contact');
-    const servicesPage = document.getElementById('services');
+    const skillsPage = document.getElementById('skills');
     console.log("entered main loop");
 
     attachNAVListeners();
@@ -351,25 +365,121 @@ function main() {
         }
 
         loadData();
-    };
-    if (servicesPage) {
-        // Collapse boxes
-        const boxes = document.querySelectorAll('.collapsible');
-        boxes.forEach(box => {
-            const items = box.querySelector('.expandable');
-            box.addEventListener('click', () => {
-            const isExpandable = !items.classList.contains('expanded');
-            // Collapse all boxes
-            boxes.forEach(b => {
-                const otherItems = b.querySelector('.expandable');
-                otherItems.classList.remove('expanded');
+    };if (skillsPage) {
+        // Constants 
+        const skillsContainer = document.getElementById('skillsContainer');
+        const skillsJsonPath = 'skills.json'; // Path to your skills data file
+
+        // An array of color classes to cycle through for each category
+        const colorClasses = ['colorOne', 'colorTwo', 'colorThree', 'colorFour'];
+
+        /**
+         * Attaches the interactive accordion logic to all collapsible elements.
+         * This function should be called AFTER the elements are created in the DOM.
+         */
+        function initializeCollapsibles() {
+            const collapsibles = skillsContainer.querySelectorAll('.collapsible');
+
+            collapsibles.forEach(clickedCollapsible => {
+                clickedCollapsible.addEventListener('click', function(event) {
+                    // 1. STOP PROPAGATION: Prevent the click from affecting parent collapsibles.
+                    event.stopPropagation();
+
+                    const items = this.querySelector('.expandable');
+                    const caret = this.querySelector('.collapse-icon');
+
+                    // If the element doesn't have an expandable area, do nothing.
+                    if (!items) return;
+
+                    // --- 2. SIBLING-ONLY LOGIC ---
+                    const parent = this.parentElement;
+                    const siblings = parent.querySelectorAll(':scope > .collapsible');
+                    
+                    siblings.forEach(sibling => {
+                        if (sibling !== this) {
+                            const siblingItems = sibling.querySelector('.expandable');
+                            const siblingCaret = sibling.querySelector('.collapse-icon');
+                            
+                            if (siblingItems) {
+                                 siblingItems.classList.remove('expanded');
+                                 sibling.setAttribute('aria-expanded', 'false');
+                            }
+                            if (siblingCaret) {
+                                siblingCaret.classList.remove('rotated');
+                            }
+                        }
+                    });
+
+                    // --- Toggle the state of the clicked collapsible ---
+                    items.classList.toggle('expanded');
+                    if (caret) caret.classList.toggle('rotated');
+                    
+                    this.setAttribute('aria-expanded', items.classList.contains('expanded'));
+                });
             });
-            // If the clicked box was collapsed, expand it
-            if (isExpandable) {
-                items.classList.add('expanded');
+        }
+
+        /**
+         * Fetches skills data and renders it into the DOM.
+         */
+        async function loadSkills() {
+            if (!skillsContainer) {
+                console.error('Error: The skills container element was not found.');
+                return;
             }
-            });
-        });
+
+            try {
+                const response = await fetch(skillsJsonPath);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                
+                skillsContainer.innerHTML = ''; // Clear the 'Loading...' message
+
+                data.categories.forEach((category, index) => {
+                    const colorClass = colorClasses[index % colorClasses.length];
+                    const subcategoriesHtml = category.subcategories.map(subcategory => {
+                        const skillsHtml = subcategory.skills.map(skill => `
+                            <div class="skill textbox">
+                                <div class="text subtext professional">${skill.skill_name}</div>
+                                <div class="text subtext-small professional">${skill.context}</div>
+                            </div>
+                        `).join('');
+
+                        const subcategoryTitle = subcategory.subcategory_name 
+                            ? `<span class="text subtext underline bold">${subcategory.subcategory_name}</span>`
+                            : '';
+
+                        return `
+                            ${subcategoryTitle}
+                            <div class="skillContainer" style="flex: 1 0 100%;">
+                                ${skillsHtml}
+                            </div>
+                        `;
+                    }).join('');
+
+                    const categoryElement = document.createElement('div');
+                    categoryElement.className = `box ${colorClass} collapsible`;
+                    categoryElement.innerHTML = `
+                        <span class="text subheader underline bold">${category.category_name}</span>
+                        <i class="fa-solid fa-caret-down collapse-icon"></i>
+                        <div class="skillContainer expandable">
+                            ${subcategoriesHtml}
+                        </div>
+                    `;
+                    skillsContainer.appendChild(categoryElement);
+                });
+
+                // --- CRITICAL FIX: Initialize listeners AFTER elements are created ---
+                initializeCollapsibles();
+
+            } catch (error) {
+                skillsContainer.innerHTML = '<p style="color: red;">Could not load skills data.</p>';
+                console.error('Fetch error:', error);
+            }
+        }
+
+        // Initial call to load the skills
+        loadSkills();
     }
     if (contactPage) {
         // Code for Contact-card Email

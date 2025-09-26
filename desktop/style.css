@@ -15,14 +15,14 @@
     --colorFour: var(--purple);
     --bg: var(--grey);
     --white_space: rgb(255, 255, 255, 50%);
-    --scrollbar_color: var(--colorFour);
+    --scrollbar_color: var(--colorOne);
 
     /* Element Specific Tokens */
     --navbarcolor: var(--raisin_black); 
     
-    --tile1: url('/webapp/images/BGTile1.png');
-    --tile2: url('/webapp/images/BGTile2.png');
-    --tile3: url('/webapp/images/BGTile3.png');
+    --tile1: url('/assets/images/BGTile1.png');
+    --tile2: url('/assets/images/BGTile2.png');
+    --tile3: url('/assets/images/BGTile3.png');
 
     --bgTile: var(--tile1);
 
@@ -45,7 +45,7 @@
 .portfolio {
     --navbarcolor: var(--colorTwo)
 }
-.services {
+.skills {
     --navbarcolor: var(--colorThree)
 }
 .contact {
@@ -77,9 +77,9 @@ body {
     background-size: 50px 50px; /* Controls the size of each tile */
     background-position: top; /* Adjusts the position of the background */
 
-    margin: 10px; /* Remove default body margin */
+    margin: 0px; /* Remove default body margin */
 
-    overflow-y: hidden;
+    overflow-y: auto;
     overscroll-behavior: none;
     display: none; /* Initially hide the body */
 }
@@ -120,6 +120,14 @@ body::before {
 a, button {
     text-decoration: none;
     border: none;
+}
+
+/* Rotating Caret */
+.collapse-icon {
+  transition: transform 0.3s ease-in-out;
+}
+.collapse-icon.rotated {
+  transform: rotate(-180deg);
 }
 
 /* Styles elements in .layered or .inline-layerer groups to default on top of one another */
@@ -217,6 +225,14 @@ background-color: var(--white_space);
 border-radius: 3px;
 }
 
+/* Display Classes */
+.grid {
+    display: grid;
+}
+.flex {
+    display: flex;
+}
+
 /* This css is to disable highlights from certain text. This can remove from ux */
 .no-select, .page {
     user-select: none; /* Prevent text selection */
@@ -239,6 +255,7 @@ border-radius: 3px;
 /* Component "Page" Styling */
 .page {
     width: var(--page-width);
+    min-width: 710px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,6 +274,20 @@ border-radius: 3px;
     grid-template-columns: 1fr 6fr 1fr;
     align-items: center;
     gap: 2%;
+    position: sticky;
+    top: 0px;
+    padding: 10px;
+    padding-bottom: 0px;
+    z-index: 2;
+    transition: backdrop-filter 0.3s ease; /* Blur effect */
+}
+#nav.scrolled {
+    backdrop-filter: blur(3px);
+    /* This creates the feathered edge at the bottom */
+    mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+    
+    /* For better browser compatibility */
+    -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 }
 /* Component "Subsection" Styling */
 .subsection {
@@ -293,7 +324,7 @@ display: grid;
 }
 #filter-bar {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto 1fr;
     gap: 5px;
 }
 #results-box {
@@ -379,7 +410,7 @@ background-color: var(--colorOne);
 .btnGroup.portfolio:hover #portfolioBtn {
 background-color: var(--colorTwo);
 }
-.btnGroup.services:hover #servicesBtn {
+.btnGroup.skills:hover #skillsBtn {
 background-color: var(--colorThree);
 }
 .btnGroup.contact:hover #contactBtn {
@@ -398,21 +429,33 @@ background-color: var(--colorFour);
 #quote {
     grid-row-start: 2;
 }
-.itemsContainer {
+.itemsContainer.results-box {
 display: grid;
 gap: 10px;
-}
-.itemsContainer.whatIDo {
-grid-template-columns: repeat(4, 1fr);
-justify-items: center;
-}
-.itemsContainer.results-box {
-flex-wrap: wrap;
 padding-inline: 3%;
 height: 500px;
-overflow: scroll;
+overflow-y: scroll;
 align-content: baseline;
 }
+.skillContainer {
+    display: flex; flex-wrap: wrap;
+}
+.skill {
+    flex-basis: 100%;
+}
+/* --- SKILL HOVER EFFECT --- */
+/* Style for individual skill items */
+.skill {
+  /* Define the transition on the base element for smooth in and out effects */
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Apply the hover effect using the :hover pseudo-class */
+.skill:hover {
+  background-color: hsla(0, 0%, 100%, .1); /* Using a subtle highlight */
+  transform: scale(1.02);
+}
+
 .tagsContainer {
 display: flex;
 gap: 5px;
@@ -421,7 +464,7 @@ justify-content: flex-start;
 }
 #tagsContainer {
     padding-block: 5px;
-    --scrollbar_color : var(--colorTwo);
+    --scrollbar_color : var(--colorFour);
     overflow-x: scroll;
 }
 .tag.selected {
@@ -595,12 +638,12 @@ width: 100%;
 /* Collapsible animations */
 .expandable {
 overflow: hidden;
-transition: max-height .15s ease;
+transition: max-height .3s ease;
 max-height: 0;
 }
 
 .expandable.expanded {
-max-height: 500px; /* adjust based on content */
+max-height: max-content; /* adjust based on content */
 }
 
 /* Class "Hidden" used for disabling elements */

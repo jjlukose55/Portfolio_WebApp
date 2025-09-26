@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "category_name": "Software",
+      "subcategories":[
+        {
+            "subcategory_name": "Programming Languages and Frameworks",
+            "skills": [
+                {
+                "skill_name": "React",
+                "context": "I have used this framework on multiple projects."
+                },
+                {
+                "skill_name": "Python",
+                "context": "The language I most used in my research projects. Have good experience with a lot of ML libraries."
+                },
+                {
+                "skill_name": "JavaScript",
+                "context": "I have written a lot of good and bad JS. Don't read the source cod for this web app."
+                }
+            ]
+        },
+        {
+            "subcategory_name": "Design",
+            "skills": [
+                {
+                "skill_name": "Figma",
+                "context": "Used to design all of my creative projects."
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "category_name": "Hardware",
+      "subcategories":[
+        {
+            "subcategory_name": "Electronics",
+            "skills": [
+                {
+                "skill_name": "Solder",
+                "context": "I have had to solder components for class projects and personal projects."
+                }
+            ]
+        },
+        {
+            "subcategory_name": "CAD",
+            "skills": [
+                {
+                "skill_name": "Autodesk Inventor",
+                "context": "The CAD software I use most often."
+                },
+                {
+                "skill_name": "Ansys Electronics",
+                "context": "The software I used for designing the motor for my E-Bike conversion project."
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "category_name": "Network",
+      "subcategories":[
+        {
+            "subcategory_name": "Tools",
+            "skills": [
+                {
+                "skill_name": "Git & GitHub",
+                "context": "Used exstensibly for both solo and team projects."
+                },
+                {
+                "skill_name": "Docker",
+                "context": "Used exstensibly for self-hosting services as well as building containerized development environments."
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "category_name": "Automotive",
+      "subcategories":[
+        {
+            "subcategory_name": "",
+            "skills": [
+                {
+                "skill_name": "",
+                "context": ""
+                }
+            ]
+        }
+      ]
+    }
+  ]
+}

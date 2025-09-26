@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
                 if (navButton.classList.contains('home') && pageElement.id != "home") {
                     pageElement.id = "home";
-                    updatePageHTML("/webapp/pages/desktop/home.html");
+                    updatePageHTML("/pages/desktop/home.html");
                 } else if (navButton.classList.contains('work') && pageElement.id != "work") {
                     pageElement.id = "work";
-                    updatePageHTML("/webapp/pages/desktop/work.html");
+                    updatePageHTML("/pages/desktop/work.html");
                 } else if (navButton.classList.contains('contact') && pageElement.id != "contact") {
                     pageElement.id = "contact";
-                    updatePageHTML("/webapp/pages/desktop/contact.html");
+                    updatePageHTML("/pages/desktop/contact.html");
                 }
                 console.log(`navigated to ${pageElement.id}`);
             });
@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Choose page based on device
     const pagePath = isMobile
-    ? "/webapp/pages/mobile/home.html"
-    : "/webapp/pages/desktop/home.html";
+    ? "/pages/mobile/home.html"
+    : "/pages/desktop/home.html";
 
     updatePageHTML(pagePath);
 });
