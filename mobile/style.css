@@ -20,9 +20,6 @@
 
   /* Typography */
   --font:   'Inter', sans-serif;
-  --h1:    1.8rem;
-  --h2:    1.4rem;
-  --body:  1rem;
 }
 
 /* --- Global reset & body --- */
@@ -33,7 +30,7 @@ body {
   line-height: 1.6;
   background: var(--bg);
   color: var(--dark_grey);
-  padding: 1rem;
+  padding: .75rem;
 }
 
 /* --- Utility classes --- */
@@ -45,7 +42,7 @@ body {
 .box {
   border-radius: var(--border-radius);
   flex: 1;
-  padding: 15px;
+  padding: .75rem;
   display: flex;
   flex-direction: row;
   gap: 20px; 
@@ -58,14 +55,3 @@ a:hover { text-decoration: underline; }
 /* --- Images --- */
 img { max-width: 100%; height: auto; border-radius: 4px; }
 
-/* --- Contact list --- */
-ul.contact-list { list-style: none; padding: 0; }
-ul.contact-list li { margin-bottom: 0.5rem; }
-ul.contact-list a { display: flex; align-items: center; gap: 0.5rem; }
-
-/* --- Responsive tweak (mobile‑only) --- */
-@media (max-width: 480px) {
-  .box { padding: 0.75rem; }
-  .header { font-size: 1.5rem; }
-  .subheader { font-size: 1.2rem; }
-}
