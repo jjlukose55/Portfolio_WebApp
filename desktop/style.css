@@ -68,7 +68,6 @@
 body, button, a {
     cursor: var(--cursor), default;
 }
-
 /* Body Styling */
 body {
     background-color: var(--bg);
@@ -108,14 +107,20 @@ body::before {
 ::-webkit-scrollbar-track {
     background: rgb(from var(--scrollbar_color) calc(r - 40) calc(g - 40) calc(b - 40) / 40%);
     border-radius: 100vh;
-    margin: 1vh;
+    margin: 1vh; /* Remove margin to let thumb go to the edge */
 }
 ::-webkit-scrollbar-thumb {
     background: rgb(from var(--scrollbar_color) calc(r - 40) calc(g - 40) calc(b - 40) / 80%);
     border-radius: 100vh;
     border: .3vh solid rgba(0, 0, 0, 0.1);
 }
-
+/* Move elements to the left to stop scrollbar jumping */
+@media screen and (min-width: 960px) {
+    html {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+    }
+}
 /* Disable Default Styling for A elements */
 a, button {
     text-decoration: none;
