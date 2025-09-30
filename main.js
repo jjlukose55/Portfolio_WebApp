@@ -6,6 +6,7 @@ window.basePath = isMobile
 ? "/mobile/"
 : "/desktop/";
 
+// Add specific styles
 const link = document.createElement("link");
 link.rel = "stylesheet";
 link.href = window.basePath + "style.css";
