@@ -1,75 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mobile Portfolio</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 1rem;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      text-align: center;
-      padding-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin: 0.5rem 0;
-    }
-
-    .project {
-      background: white;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .project h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-
-    .project p {
-      margin: 0.5rem 0 0;
-      font-size: 0.95rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <header>
+  <header class="box">
       <h1>Justin Lukose</h1>
       <p>Mobile Portfolio</p>
+    <img src="/assets/images/selfie.JPG" alt="Justin">
+    <p>“I’m an engineer who loves what I do.”</p>
     </header>
 
-    <main>
-      <div class="project">
-        <h2>Portfolio Website</h2>
-        <p>Self-hosted personal site using Smallweb.</p>
-      </div>
+  <section class="box">
+    <h2>What I do</h2>
+    <p>Engineer focused on system design, automation, and user‑centric solutions. I enjoy turning complex problems into elegant, maintainable code.</p>
+  </section>
 
-      <div class="project">
-        <h2>Tasks Web App</h2>
-        <p>Browser-based task manager built with vanilla JS.</p>
-      </div>
-
-      <div class="project">
-        <h2>Home Server</h2>
-        <p>Dockerized apps and skills running on a DIY server.</p>
-      </div>
-
-      <div class="project">
-        <h2>Home Network</h2>
-        <p>Fully segmented and virtualized enthusiast-grade home network.</p>
-      </div>
-    </main>
-  </div>
+  <section class="box">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li><a href="https://linkedin.com/in/jluk927" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/jjlukose55" target="_blank">GitHub</a></li>
+      <li><a href="https://youtube.com/yourchannel" target="_blank">YouTube</a></li>
+      <li><a href="mailto:your.email@example.com">Email</a></li>
+    </ul>
+  </section>
 </body>
 </html>
+
