@@ -42,12 +42,6 @@
   width: fit-content;
   height: fit-content;
 }
-.alC {
-  text-align: center;
-}
-.alL {
-  text-align: center;
-}
 .header {
   font-size: 2.6rem;
 }
@@ -84,16 +78,37 @@
   z-index: -1;
   /* ensures it's behind the text */
 }
+.underline {
+  position: relative;
+  z-index: 1;
+  padding: 0 0.4em;
+  background: transparent;
+  text-wrap: nowrap;
+}
+.underline::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  /* vertical offset */
+  left: 1px;
+  /* horizontal offset */
+  width: 100%;
+  height: 50%;
+  background: var(--white_space);
+  border-radius: 3px;
+  z-index: -1;
+  /* ensures it's behind the text */
+}
 /* --- Shadows --- */
 .shadowed_text {
   text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
 }
 
-.shadowed_box {
+.shadowed_box, .underline.shadowed_box::before {
   box-shadow: -3px 3px 0px rgba(0, 0, 0, .3);
 }
 
-.shadowed_box_blurred {
+.shadowed_box_blurred, .underline.shadowed_box_blurred::before {
   box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
 }
 /* --- Global reset & body --- */
