@@ -96,16 +96,6 @@
 .shadowed_box_blurred {
   box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
 }
-/* --- Layers --- */
-.layered {
-    display: grid;
-    width: 100%;
-    min-width: fit-content;
-}
-.layered  > * {
-    grid-column-start: 1;
-    grid-row-start: 1;
-}
 /* --- Global reset & body --- */
 * {
   box-sizing: border-box;
