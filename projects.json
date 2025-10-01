@@ -4,21 +4,21 @@
         "description": "My car and what I have learned maintaining it.",
         "tags": ["featured", "automotive", "hobbyist"],
         "image_link": "",
-        "external_link": "https://car.jjluk.net"
+        "external_link": "https://github.com/jjlukose55/"
     },
     {
         "title": "Closet Database",
         "description": "A React Native app that doubles as an organization tool and a social media.",
         "tags": ["per", "software"],
         "image_link": "",
-        "external_link": "https://closet.jjluk.net"
+        "external_link": "https://github.com/jjlukose55/"
     },
     {
         "title": "Home Lab",
         "description": "My personal labratory built on all the knowledge I have gathered as a computer engineer.",
         "tags": ["featured", "hardware", "network", "hobbyist"],
         "image_link": "",
-        "external_link": "https://lab.jjluk.net"
+        "external_link": "https://github.com/jjlukose55/"
     },
     {
         "title": "Investment Calculator",
@@ -32,27 +32,27 @@
         "description": "My personal website, written in HTML and JS and completely self-hosted.",
         "tags": ["featured", "software", "network", "creative"],
         "image_link": "https://portfolio.jjluk.net",
-        "external_link": "https://portfolio.jjluk.net"
+        "external_link": "https://github.com/jjlukose55/Portfolio_WebApp"
     },
     {
         "title": "Research: \" \"",
         "description": "",
         "tags": ["research", "hardware"],
         "image_link": "",
-        "external_link": "https://research.jjluk.net/fall2022"
+        "external_link": "https://github.com/jjlukose55/"
     },
     {
         "title": "Research: \"Humanoid Robots\"",
         "description": "",
         "tags": ["featured", "research", "software"],
         "image_link": "",
-        "external_link": "https://research.jjluk.net/fall2024"
+        "external_link": "https://github.com/jjlukose55/"
     },
     {
         "title": "Tasks",
         "description": "A simple browser based task manager.",
         "tags": ["software", "creative"],
         "image_link": "https://github.com/jjlukose55/Tasks_WebApp",
-        "external_link": "https://tasks.jjluk.net"
+        "external_link": "https://github.com/jjlukose55/Tasks_WebApp"
     }
 ]
