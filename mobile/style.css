@@ -57,26 +57,13 @@
     font-weight: 800;
 }
 .underline {
-    position: relative;
-    z-index: 1;
-    padding: 0 0.4em;
-    background: transparent;
+  background: linear-gradient(var(--white_space), var(--white_space));
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 0 70%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
-.underline::before {
-    content: "";
-    position: absolute;
-    top: 40%;
-    /* vertical offset */
-    left: 1px;
-    /* horizontal offset */
-    width: 100%;
-    height: 50%;
-    background: var(--white_space);
-    border-radius: 3px;
-    z-index: -1;
-    /* ensures it's behind the text */
-}
-
 /* --- Global reset & body --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -86,6 +73,7 @@ body {
   background: var(--bg);
   color: var(--dark_grey);
   padding: .75rem;
+  gap: 1.5vh;
 }
 
 /* --- Utility classes --- */

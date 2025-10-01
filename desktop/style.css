@@ -183,14 +183,12 @@ a, button {
 .bold {
     font-weight: 800;
 }
-
 .underline {
     position: relative;
     z-index: 1;
     padding: 0 0.4em;
     background: transparent;
 }
-
 .underline::before {
     content: "";
     position: absolute;
@@ -205,6 +203,7 @@ a, button {
     z-index: -1;
     /* ensures it's behind the text */
 }
+
 /* Dialogue Element Styling */
 dialog {
     border: none;
