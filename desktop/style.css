@@ -71,7 +71,7 @@ body, button, a {
 /* Body Styling */
 body {
     background-color: var(--bg);
-    background-image: var(--bgTile); /* Replace with your image path */
+    background-image: var(--bgTile); 
     background-repeat: repeat; /* Tiles the image in both x and y directions */
     background-size: 50px 50px; /* Controls the size of each tile */
     background-position: top; /* Adjusts the position of the background */
@@ -301,10 +301,8 @@ grid-auto-rows: 1fr 4fr;
 gap: 15px;
 width: 100%;
 }
-
 /* Component "Box" Styling */
 .box {
-
     border-radius: var(--border-radius);
     flex: 1;
     padding: 15px;

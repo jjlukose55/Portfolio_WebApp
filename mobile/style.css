@@ -3,20 +3,20 @@
 /* --- Colour palette (same as desktop) --- */
 :root {
   /* Primitives */
-  --green:            #A2C5AC;
-  --blue_light:       #9DB5B2;
-  --blue_dark:        #878E99;
-  --purple:           #7F6A93;
-  --grey:             #D3D5D4;
-  --dark_grey:        #4d4d4d;
+  --green: #A2C5AC;
+  --blue_light: #9DB5B2;
+  --blue_dark: #878E99;
+  --purple: #7F6A93;
+  --grey: #D3D5D4;
+  --dark_grey: #4d4d4d;
 
   /* Tokens */
-  --colorOne:   var(--green);
-  --colorTwo:   var(--blue_light);
+  --colorOne: var(--green);
+  --colorTwo: var(--blue_light);
   --colorThree: var(--blue_dark);
-  --colorFour:  var(--purple);
-  --bg:         var(--grey);
-  --white_space: rgba(255,255,255,.8);
+  --colorFour: var(--purple);
+  --bg: var(--grey);
+  --white_space: rgba(255, 255, 255, .8);
 
   /* Typography */
   --font: 'Inter', sans-serif;
@@ -29,66 +29,120 @@
 
 /* Sets text styles and defines commonly used text sizes */
 .text {
-    font-family: var(--font);
-    font-weight: var(--font_weight);
-    letter-spacing: var(--letter-spacing);
-    width: fit-content;
-    height: fit-content;
+  font-family: var(--font);
+  font-weight: var(--font_weight);
+  letter-spacing: var(--letter-spacing);
+  width: fit-content;
+  height: fit-content;
 }
+
 .header {
-    font-size: 2rem;
+  font-size: 2rem;
 }
+
 .subheader {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
+
 .subtext {
-    font-size: 1rem;
+  font-size: 1rem;
 }
+
 .subtext-small {
-    font-size: .8rem;
+  font-size: .8rem;
 }
+
 .professional.text {
-    font-family: var(--font-pro);
+  font-family: var(--font-pro);
 }
+
 .personal.text {
-    font-family: var(--font-per);
+  font-family: var(--font-per);
 }
+
 .bold {
-    font-weight: 800;
+  font-weight: 800;
 }
+
 .underline {
-    position: relative;
-    z-index: 1;
-    padding: 0 0.4em;
-    background: transparent;
-    text-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+  padding: 0 0.4em;
+  background: transparent;
+  text-wrap: nowrap;
 }
+
 .underline::before {
-    content: "";
-    position: absolute;
-    top: 40%;
-    /* vertical offset */
-    left: 1px;
-    /* horizontal offset */
-    width: 100%;
-    height: 50%;
-    background: var(--white_space);
-    border-radius: 3px;
-    z-index: -1;
-    /* ensures it's behind the text */
+  content: "";
+  position: absolute;
+  top: 40%;
+  /* vertical offset */
+  left: 1px;
+  /* horizontal offset */
+  width: 100%;
+  height: 50%;
+  background: var(--white_space);
+  border-radius: 3px;
+  z-index: -1;
+  /* ensures it's behind the text */
 }
+
+/* --- Shadows --- */
+.shadowed_text {
+  text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
+}
+
+.shadowed_box {
+  box-shadow: -3px 3px 0px rgba(0, 0, 0, .3);
+}
+
+.shadowed_box_blurred,
+.box {
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
+}
+
 /* --- Global reset & body --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
+  gap: 1.5vh;
+
   font-family: var(--font);
   font-size: var(--body);
   line-height: 1.6;
-  background: var(--bg);
-  color: var(--dark_grey);
-  padding: .75rem;
-  gap: 1.5vh;
+
+  background-color: var(--bg);
+  background-image: var(--bgTile);
+  background-repeat: repeat;
+  /* Tiles the image in both x and y directions */
+  background-size: 50px 50px;
+  /* Controls the size of each tile */
+  background-position: top;
+  /* Adjusts the position of the background */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  /* Ensures overlay is fixed to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Use viewport width */
+  height: 100vh;
+  /* Use viewport height */
+  background-color: rgba(211, 213, 212, 0.6);
+  /* Use rgba for better control */
+  z-index: 0;
+  /* Place it behind content but above any backgrounds */
+  pointer-events: none;
+  /* Prevent the overlay from blocking interactions */
 }
 
 /* --- Utility classes --- */
@@ -96,25 +150,34 @@ body {
 .colorOne {
   background-color: var(--colorOne);
 }
+
 .colorTwo {
   background-color: var(--colorTwo);
 }
+
 .colorThree {
   background-color: var(--colorThree);
 }
+
 .colorFour {
   background-color: var(--colorFour);
 }
 
 /* --- Links --- */
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 /* --- Images --- */
-img { 
-  max-width: 100%; 
-  height: auto; 
-  border-radius: var(--border-radius); 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
 }
 
 /* --- Class Specific --- */
@@ -124,79 +187,100 @@ img {
   position: relative;
   width: 100%;
 }
+
 .box {
   display: flex;
   flex-direction: column;
   flex: 1;
   border-radius: var(--border-radius);
   padding: .75rem;
-  gap: 20px; 
+  gap: 20px;
 }
+
 .itemsContainer {
-display: flex;
-flex-direction: row;
-flex: auto;
-justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  justify-content: space-around;
 }
+
 .socialIcons {
   width: 60px;
   height: 60px;
 }
+
 /* --- ID Specific --- */
 #signature {
-width: 90px;  /* Use the common width variable */
-height: auto;  /* Maintain aspect ratio */
+  width: 90px;
+  /* Use the common width variable */
+  height: auto;
+  /* Maintain aspect ratio */
 }
+
 #butterfly.flutter #butterflyUpFlap {
-    animation: flap .4s infinite alternate, rainbow 1.6s infinite normal;
+  animation: flap .4s infinite alternate, rainbow 1.6s infinite normal;
 }
+
 #butterfly.flutter #butterflyDownFlap {
-    animation: flap .4s infinite alternate-reverse, rainbow 1.6s infinite normal;
+  animation: flap .4s infinite alternate-reverse, rainbow 1.6s infinite normal;
 }
+
 /* --- Animations --- */
 /* Butterfly Effects */
 /* Wing flapping effect */
 @keyframes flap {
-    0% { 
-        opacity: 100%;
-    }
-    100% { 
-        opacity: 10%;
-    }
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 10%;
+  }
 }
+
 /* rainbow effect */
 @keyframes rainbow {
-    0% { 
-        stroke: #000000;
-    }
-    10% { 
-        stroke: #cf5050;
-    }
-    20% { 
-        stroke: #cfb450;
-    }
-    30% { 
-        stroke: #a0cf50;
-    }
-    40% { 
-        stroke: #50cf98;
-    }
-    50% { 
-        stroke: #50b1cf;
-    }
-    60% { 
-        stroke: #6e50cf;
-    }
-    70% { 
-        stroke: #9a50cf;
-    }
-    80% { 
-        stroke: #cf50ad;
-    }
-    90% { 
-        stroke: #cf507c;
-    }
-    100% { 
-        stroke: #372929;
-    }
+  0% {
+    stroke: #000000;
+  }
+
+  10% {
+    stroke: #cf5050;
+  }
+
+  20% {
+    stroke: #cfb450;
+  }
+
+  30% {
+    stroke: #a0cf50;
+  }
+
+  40% {
+    stroke: #50cf98;
+  }
+
+  50% {
+    stroke: #50b1cf;
+  }
+
+  60% {
+    stroke: #6e50cf;
+  }
+
+  70% {
+    stroke: #9a50cf;
+  }
+
+  80% {
+    stroke: #cf50ad;
+  }
+
+  90% {
+    stroke: #cf507c;
+  }
+
+  100% {
+    stroke: #372929;
+  }
 }
