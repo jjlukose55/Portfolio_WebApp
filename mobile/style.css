@@ -80,6 +80,8 @@
 /* --- Global reset & body --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font);
   font-size: var(--body);
   line-height: 1.6;
@@ -118,6 +120,7 @@ img {
 /* --- Class Specific --- */
 .section {
   display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
@@ -140,3 +143,60 @@ justify-content: space-around;
   height: 60px;
 }
 /* --- ID Specific --- */
+#signature {
+width: 90px;  /* Use the common width variable */
+height: auto;  /* Maintain aspect ratio */
+}
+#butterfly.flutter #butterflyUpFlap {
+    animation: flap .4s infinite alternate, rainbow 1.6s infinite normal;
+}
+#butterfly.flutter #butterflyDownFlap {
+    animation: flap .4s infinite alternate-reverse, rainbow 1.6s infinite normal;
+}
+/* --- Animations --- */
+/* Butterfly Effects */
+/* Wing flapping effect */
+@keyframes flap {
+    0% { 
+        opacity: 100%;
+    }
+    100% { 
+        opacity: 10%;
+    }
+}
+/* rainbow effect */
+@keyframes rainbow {
+    0% { 
+        stroke: #000000;
+    }
+    10% { 
+        stroke: #cf5050;
+    }
+    20% { 
+        stroke: #cfb450;
+    }
+    30% { 
+        stroke: #a0cf50;
+    }
+    40% { 
+        stroke: #50cf98;
+    }
+    50% { 
+        stroke: #50b1cf;
+    }
+    60% { 
+        stroke: #6e50cf;
+    }
+    70% { 
+        stroke: #9a50cf;
+    }
+    80% { 
+        stroke: #cf50ad;
+    }
+    90% { 
+        stroke: #cf507c;
+    }
+    100% { 
+        stroke: #372929;
+    }
+}
