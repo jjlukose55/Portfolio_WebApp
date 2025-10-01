@@ -18,6 +18,13 @@
   --bg: var(--grey);
   --white_space: rgba(255, 255, 255, .8);
 
+  /* Background Tiles  */
+  --tile1: url('/assets/images/BGTile1.png');
+  --tile2: url('/assets/images/BGTile2.png');
+  --tile3: url('/assets/images/BGTile3.png');
+
+  --bgTile: var(--tile1);
+
   /* Typography */
   --font: 'Inter', sans-serif;
   --font_weight: 400;
