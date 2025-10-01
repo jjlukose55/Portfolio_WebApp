@@ -78,13 +78,6 @@
   z-index: -1;
   /* ensures it's behind the text */
 }
-.textbox {
-  width: fit-content;
-  padding: 1% 2%;
-  margin: 1%;
-  background-color: var(--white_space);
-  border-radius: 3px;
-}
 /* --- Shadows --- */
 .shadowed_text {
   text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
@@ -160,6 +153,10 @@ body::before {
 
 .colorFour {
   background-color: var(--colorFour);
+}
+
+.colorWhitespace {
+  background-color: var(--white_space);
 }
 
 /* --- Links --- */
