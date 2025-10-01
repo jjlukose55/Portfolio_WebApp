@@ -122,15 +122,19 @@ img {
 }
 .box {
   display: flex;
+  flex-direction: column;
   border-radius: var(--border-radius);
   padding: .75rem;
   gap: 20px; 
 }
+.itemsContainer {
+display: flex;
+flex-direction: row;
+flex: auto;
+justify-content: space-around;
+}
 .socialIcons {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
 }
 /* --- ID Specific --- */
-#title-box {
-  flex-direction: column;
-}
