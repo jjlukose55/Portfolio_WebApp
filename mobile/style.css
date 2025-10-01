@@ -20,6 +20,8 @@
 
   /* Typography */
   --font:   'Inter', sans-serif;
+
+  --border-radius: 20px
 }
 
 /* --- Global reset & body --- */
@@ -41,11 +43,22 @@ body {
 /* Component "Box" Styling */
 .box {
   border-radius: var(--border-radius);
-  flex: 1;
   padding: .75rem;
-  display: flex;
-  flex-direction: row;
   gap: 20px; 
+}
+/* --- Color Classes --- */
+/* Color Groups. Apply background color directly to elements  */
+.colorOne {
+  background-color: var(--colorOne);
+}
+.colorTwo {
+  background-color: var(--colorTwo);
+}
+.colorThree {
+  background-color: var(--colorThree);
+}
+.colorFour {
+  background-color: var(--colorFour);
 }
 
 /* --- Links --- */
@@ -53,5 +66,14 @@ a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* --- Images --- */
-img { max-width: 100%; height: auto; border-radius: 4px; }
+img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: var(--border-radius); 
+}
 
+/* -- Class Specific -- */
+#title-box {
+  display: grid;
+  flex-direction: column;
+}
