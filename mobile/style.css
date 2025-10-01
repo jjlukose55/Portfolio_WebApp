@@ -100,16 +100,21 @@
   /* ensures it's behind the text */
 }
 /* --- Shadows --- */
-.shadowed_text {
+.text.shadowed {
   text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
 }
 
-.shadowed_box, .underline.shadowed_box::before {
+.box.shadowed{
   box-shadow: -3px 3px 0px rgba(0, 0, 0, .3);
 }
 
-.shadowed_box_blurred, .underline.shadowed_box_blurred::before {
+.box.shadowed_blurred{
   box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
+}
+
+.underline.shadowed::before {
+  text-shadow: none;
+  box-shadow: -3px 3px 0px rgba(0, 0, 0, .3);
 }
 /* --- Global reset & body --- */
 * {
