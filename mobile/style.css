@@ -42,35 +42,21 @@
   width: fit-content;
   height: fit-content;
 }
-
 .header {
   font-size: 2rem;
 }
-
 .subheader {
   font-size: 1.2rem;
 }
-
 .subtext {
   font-size: 1rem;
 }
-
 .subtext-small {
   font-size: .8rem;
 }
-
-.professional.text {
-  font-family: var(--font-pro);
-}
-
-.personal.text {
-  font-family: var(--font-per);
-}
-
 .bold {
   font-weight: 800;
 }
-
 .underline {
   position: relative;
   z-index: 1;
@@ -78,7 +64,6 @@
   background: transparent;
   text-wrap: nowrap;
 }
-
 .underline::before {
   content: "";
   position: absolute;
@@ -93,7 +78,13 @@
   z-index: -1;
   /* ensures it's behind the text */
 }
-
+.textbox {
+  width: fit-content;
+  padding: 1% 2%;
+  margin: 1%;
+  background-color: var(--white_space);
+  border-radius: 3px;
+}
 /* --- Shadows --- */
 .shadowed_text {
   text-shadow: -2px 2px 0px rgba(0, 0, 0, .3);
@@ -185,6 +176,7 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+  margin: 5px;
   border-radius: var(--border-radius);
 }
 
@@ -202,7 +194,6 @@ img {
   flex: 1;
   border-radius: var(--border-radius);
   padding: .75rem;
-  gap: 20px;
 }
 
 .itemsContainer {
