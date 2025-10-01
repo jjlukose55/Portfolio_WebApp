@@ -16,7 +16,7 @@
   --colorThree: var(--blue_dark);
   --colorFour: var(--purple);
   --bg: var(--grey);
-  --white_space: rgba(255, 255, 255, .8);
+  --white_space: rgba(255, 255, 255, .6);
 
   /* Background Tiles  */
   --tile1: url('/assets/images/BGTile1.png');
@@ -41,6 +41,12 @@
   letter-spacing: var(--letter-spacing);
   width: fit-content;
   height: fit-content;
+}
+.alC {
+  text-align: center;
+}
+.alL {
+  text-align: center;
 }
 .header {
   font-size: 2rem;
@@ -90,7 +96,16 @@
 .shadowed_box_blurred {
   box-shadow: -3px 3px 5px rgba(0, 0, 0, .3);
 }
-
+/* --- Layers --- */
+.layered {
+    display: grid;
+    width: 100%;
+    min-width: fit-content;
+}
+.layered  > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
 /* --- Global reset & body --- */
 * {
   box-sizing: border-box;
