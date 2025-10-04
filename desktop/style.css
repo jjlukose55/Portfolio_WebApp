@@ -20,6 +20,7 @@
     /* Element Specific Tokens */
     --navbarcolor: var(--raisin_black); 
     
+    /* Background Tiles  */
     --tile1: url('/assets/images/BGTile1.png');
     --tile2: url('/assets/images/BGTile2.png');
     --tile3: url('/assets/images/BGTile3.png');
